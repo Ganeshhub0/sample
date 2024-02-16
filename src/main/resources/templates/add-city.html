@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/pass/addproject" th:object="${city}" method="get">
+    ID:<input type="number" id="id" th:field="${city.Cid}">
+    CITY:<input type="text" id="city" th:field="${city.city}">
+<input type="submit" value="ADD">
+</form>
+<a th:href="@{/pass/store}">DONE</a>
+</body>
+</html>

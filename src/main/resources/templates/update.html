@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/pass/edit" th:object="${pass}" method="get">
+    ID:<input type="number" id="id" th:field="${pass.id}">
+    NAME:<input type="text" id="name" th:field="${pass.name}">
+    AGE:<input type="number" id="age" th:field="${pass.age}">
+    <h4>CITY</h4>
+    <div th:each="cc,iterStat:${pass.cities}">
+        <!--        <input type="text" name="cities[__${iterStat.index}__].city" th:field="*{cities[__${iterStat.index}__].city}">-->
+        <input type="text" name="cities[__${iterStat.index}__].city" th:field="*{cities[__${iterStat.index}__].city}">
+        <!--        <input type="text" name="cities[${iterStat.index}].city" th:field="*{cities[${iterStat.index}].city}">-->
+    </div>
+    <input type="submit" value="update">
+</form>
+</body>
+</html>
+
+<!--<input type="text" name="projects[__${iterStat.index}__].projectname" th:field="*{projects[__${iterStat.index}__].projectname}" placeholder="Project Name" />-->

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table border="2">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>CITY</th>
+        <th>ACTION</th>
+    </tr>
+
+
+<tr th:each="l:${list}">
+    <td th:text="${l.id}"></td>
+    <td th:text="${l.name}"></td>
+    <td th:text="${l.age}"></td>
+    <td>
+<ul th:each="citi:${l.cities}">
+<li th:text="${citi.city}"></li>
+</ul>
+    </td>
+    <td>
+        <a th:href="@{/pass/update/{id}(id=${l.id})}">UPDATE</a>
+        <a th:href="@{/pass/delete/{id}(id=${l.id})}">DELETE</a>
+    </td>
+</tr>
+</table>
+
+</body>
+</html>
